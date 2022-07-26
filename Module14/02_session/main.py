@@ -7,8 +7,11 @@ y2 = float(input('Y: '))
 
 x_diff = x1 - x2
 y_diff = y1 - y2
+
 if x_diff == 0:
-    print('Ошибка: Нельзя делить на 0')
+    print("x = ", x1)
+elif y_diff == 0:
+    print("y = ", y1)
 else:
     k = y_diff / x_diff
     b = y2 - k * x2
