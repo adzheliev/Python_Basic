@@ -16,11 +16,15 @@ for i in range (1, K + 1):
     people.append(size)
 
 count = 0
+rollers.sort()
+people.sort()
+
 
 for i in people:
     for l in rollers:
-        if i <= l:
+        if l >= i:
             rollers.remove(l)
             count += 1
+            break
 
 print('Наибольшее кол-во людей, которые могут взять ролики: ', count)
