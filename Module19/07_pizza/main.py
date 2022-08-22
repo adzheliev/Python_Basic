@@ -1,17 +1,21 @@
 N = int(input('Введите количество заказов: '))
 
-klient = dict()
-klient_dict = dict()
+client_dict = dict()
+
 for i in range(1, N +1):
-    print(i,'-й заказ: ',end='')
-    order = input().split()
-    klient['name'] = order[0]
-    klient['pizza'] = order[1]
-    klient['quantity'] = order[2]
-    klient_dict[i] = klient
+    buyer_name, pizza_name, pizza_cnt = input(str(i) + ' заказ: ').split()
+    pizza_cnt = int(pizza_cnt)
+    if buyer_name not in client_dict:
+        client_dict[buyer_name] = {pizza_name: pizza_cnt}
+    else:
+        if pizza_name not in client_dict[buyer_name]:
+            client_dict[buyer_name] |= {pizza_name: pizza_cnt}
+        else:
+            client_dict[buyer_name] += pizza_cnt
 
-print(klient_dict)
+#for buyer_name, pizza_name in sorted(client_dict.items()):
+#    print(f'{buyer_name}:')
+#    for pizza in sorted(pizza_name):
+#        print('     ', pizza, pizza_cnt)
 
-#for i in klientkeyssorted:
-#    if i in klient:
-#        print(i)
+

@@ -1,35 +1,19 @@
-n = int(input('Введите количество человек: ' ))
+num = int(input('Введите количество человек: '))
 
-p_tree = {}
+tree = dict()
+family = dict()
 
-for i in range(1, n):
-    print(i, '-я пара: ', end='')
-    line = input()
-    child, parent = line.split()
-    p_tree[child] = parent
+for i_index in range(num - 1):
+    couple = input(f'{i_index + 1} пара: ').split()
+    tree[couple[0]] = couple[1]
 
-all_man = set(p_tree.keys()) | set(p_tree.values())
-heights = {}
-
-
-def f(name):
-    if name not in p_tree:
-        heights[name] = 0
-        return 0
-    parent = p_tree[name]
-    if parent in heights:
-        value = heights[parent] + 1
+for child, parent in tree.items():
+    if parent in tree:
+        family[child] = family[parent] + 1
     else:
-        value = f(
-            parent) + 1
-    heights[name] = value
-    return value
+        family[parent] = 0
+        family[child] = 1
 
-
-for name in all_man:
-    if name not in heights:
-        f(name)
-
-for name in sorted(heights):
-    print(name, heights[name])
+for i_key in sorted(family):
+    print(i_key, family[i_key])
 

@@ -10,7 +10,7 @@ while True:
         if response == 'Нет':
             fromonetomax = fromonetomax.symmetric_difference(numbers)
         elif response == 'Да':
-            fromonetomax = numbers
+            fromonetomax &= numbers
     else:
         print('Артём мог загадать следующие числа: ',fromonetomax)
         break
