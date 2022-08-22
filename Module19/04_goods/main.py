@@ -24,4 +24,14 @@ store = {
     ],
 }
 
-# TODO здесь писать код
+for i_goods in goods:
+    total = 0
+    total_quantity = 0
+    for i_store in store[goods[i_goods]]:
+        summitem = i_store['price'] * i_store['quantity']
+        total_quantity += i_store['quantity']
+        total += summitem
+    print(i_goods,' - ', total_quantity, 'штук, стоимость', total, 'рубля')
+
+
+
