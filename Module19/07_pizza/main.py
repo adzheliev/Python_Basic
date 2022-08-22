@@ -13,7 +13,7 @@ for i in range(1, N +1):
         else:
             client_dict[buyer_name] += pizza_cnt
 
-#for buyer_name, pizza_name in sorted(client_dict.items()):
+# for buyer_name, pizza_name in sorted(client_dict.items()):
 #    print(f'{buyer_name}:')
 #    for pizza in sorted(pizza_name):
 #        print('     ', pizza, pizza_cnt)
