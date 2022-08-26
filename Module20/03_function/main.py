@@ -1,19 +1,14 @@
 def slicer(posl, number):
     posl = list(posl)
-    newlist = []
-    for index, value in enumerate(posl):
-        if value == number:
-            newlist = posl[index:]
-            break
-    for index, value in enumerate(newlist):
-        if value == number:
-            newlist = newlist[:index + 1]
-            break
-    newlist = tuple(newlist)
-    return newlist
+    if posl.count(number) >= 2:
+        initial = posl.index(number)
+        final = posl.index(number, initial + 1)
+        return tuple(posl[initial:final+1])
+    elif posl.count(number) == 1:
+        initial = posl.index(number)
+        return tuple(posl[initial::])
+    else:
+        return None
 
 
-tup = tuple(input("Введите последовательность чисел кортежа: "))
-element = int(input('Введите случайный элемент: '))
-a = slicer(tup, element)
-print('Ответ в консоли:', a)
+print(slicer((1, 2, 3, 4, 5, 6, 7, 8, 2, 2, 9, 10), 2))

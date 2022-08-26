@@ -4,8 +4,6 @@ players = {
     ("Rob", "Bobbin"): (12, 8, 2)
 }
 
-final = []
-for index, values in players.items():
-    a = index + values
-    final.append(a)
+final = list(index + values for index, values in players.items())
+
 print(final)
