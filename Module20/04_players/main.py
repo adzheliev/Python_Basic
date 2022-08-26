@@ -4,4 +4,8 @@ players = {
     ("Rob", "Bobbin"): (12, 8, 2)
 }
 
-# TODO здесь писать код
+final = []
+for index, values in players.items():
+    a = index + values
+    final.append(a)
+print(final)

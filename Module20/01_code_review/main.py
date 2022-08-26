@@ -1,3 +1,17 @@
+from itertools import chain
+
+def dict(students):
+    ID_age = []
+    interests = []
+    string = ''
+    for index, value in students.items():
+        element = (index, value['age'])
+        ID_age.append(element)
+        interests.append(value['interests'])
+        string += value['surname']
+    return ID_age, interests, string
+
+
 students = {
     1: {
         'name': 'Bob',
@@ -19,26 +33,8 @@ students = {
     }
 }
 
-
-def f(dict):
-    lst = []
-    string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
-
-
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
-
-
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
-
-# TODO исправить код
+super = dict(students)
+print(super)
+print('Список пар "ID студента — возраст: ', super[0])
+print(set(list(chain(*super[1]))))
+print('Общая длина всех фамилий студентов: ', len(super[2]))
