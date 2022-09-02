@@ -1,3 +1,6 @@
+from pprint import pprint
+import copy
+
 site = {
     'html': {
         'head': {
@@ -10,25 +13,25 @@ site = {
         }
     }
 }
+pprint(site)
 
 def phonesale(n, site):
+    copysite = copy.deepcopy(site)
     count = 0
     while count < n:
         phone = input('Введите название продукта для нового сайта: ')
-        for key, value in site.items():
+        for key, value in copysite.items():
             if 'title' in key:
                 value[key] = 'Куплю/продам ',phone, 'недорого'
-            elif 'h2' in key:
+            if 'h2' in key:
                 value[key] = 'У нас самая низкая цена на', phone
-            return site
+            return copysite
         else:
-
-            for key, value in site.items():
+            for key, value in copy.items():
                 if type(value) == dict:
                     result = phonesale(n, value)
                     if result is not None:
                         return result
-
 
 n = int(input('Сколько сайтов: '))
 
