@@ -1,17 +1,11 @@
 def sum(*args):
-    if type(args) == tuple:
-        total = 0
-        for i in args:
-            total += i
-        return total
+    total = 0
+    for element in args:
+        if isinstance(element, int):
+            total += element
+        else:
+            total += sum(element)
 
-    elif type(args) == list:
-        total = 0
-        for subelement in args:
-            if type(subelement) == int:
-                total = total + subelement
-            elif type(subelement) == list:
-                sum(subelement)
         return total
 
 print(sum([[1, 2, [3]], [1], 3]))
