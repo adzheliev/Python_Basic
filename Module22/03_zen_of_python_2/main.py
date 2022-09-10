@@ -1,6 +1,7 @@
 from collections import Counter
+import os
 
-initial = open('/Users/user/PycharmProjects/Python_Basic/Python_Basic/Python_Basic/Python_Basic/22/Module22/02_zen_of_python/zen.txt', 'r')
+initial = open(os.path.join('..', '02_zen_of_python', 'zen.txt'), 'r')
 text = initial.read()
 
 totalletters = 0
