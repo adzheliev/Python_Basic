@@ -7,6 +7,7 @@ alfavit = 'abcdefghijklmnopqrstuvwxyz'
 lettersdict = {}
 lensym = 0
 
+
 for line in initial:
     for sym in line:
         if sym.lower() in alfavit:
