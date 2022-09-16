@@ -19,11 +19,11 @@ try:
             nums_list = line.split()
             try:
                 res1 = f(int(nums_list[0]), int(nums_list[1]))
-            except Exception:
+            except ZeroDivisionError:
                 print("Что-то пошло не так с первой функцией")
             try:
                 res2 = f2(int(nums_list[0]), int(nums_list[1]))
-            except Exception:
+            except ZeroDivisionError:
                 print("Что-то пошло не так со второй функцией")
             try:
                 number = random.randint(0, 100)
@@ -31,7 +31,7 @@ try:
                 file2.write(' '.join(my_list))
             except Exception:
                 print("Что-то пошло не так с записью в файл")
-except Exception:
+except (FileExistsError, FileNotFoundError, IsADirectoryError):
     print("Что-то пошло не так с открытием файла")
 
 
